@@ -44,16 +44,16 @@ const Blob = () => {
   });
 
   return (
-    <Sphere ref={meshRef} args={[2,2, 128, 128]}>
+    <Sphere ref={meshRef} args={[50, 128, 128]} position={[1.5, -0.5, 0]}>
       <meshPhysicalMaterial
-        color="#0088ff"
+        color="#5b5b5b"
         metalness={0.4}
         roughness={0.05}
-        transmission={0.1}
+        transmission={0.9}
         ior={1.5}
         thickness={2}
-        attenuationColor="#00aaff"
-        attenuationDistance={4}
+        attenuationColor="#6f09ff"
+        attenuationDistance={5}
         envMapIntensity={1.2}
       />
     </Sphere>
@@ -64,8 +64,8 @@ export const HeroCanvas: React.FC<HeroCanvasProps> = () => {
   return (
     <div className="w-full h-full">
       {/* gl={{ alpha: true }} ensures the canvas background is totally transparent */}
-      <Canvas camera={{ position: [0, 0, 2], fov: 45 }} gl={{ alpha: true }}> 
-        <ambientLight intensity={0.2} />
+      <Canvas camera={{ position: [0, 0, 3], fov: 45 }} gl={{ alpha: true }}> 
+        <ambientLight intensity={0.1} />
         <directionalLight position={[5, 5, 2]} intensity={1.5} color="#0055ff" />
         <directionalLight position={[-5, -5, -2]} intensity={1} color="#3300ff" />
         <Blob />
