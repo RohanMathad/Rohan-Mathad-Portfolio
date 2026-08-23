@@ -40,7 +40,8 @@ const skillsData: SkillItem[] = [
 
 export const Skills: React.FC = () => {
   return (
-    <section id="skills" className="scroll-mt-32 w-full max-w-container-max mx-auto md:px-margin-desktop mb-24 md:mb-0">
+    // ADDED px-6 here for mobile margins. md:px-margin-desktop keeps desktop completely untouched!
+    <section id="skills" className="scroll-mt-32 w-full max-w-container-max mx-auto px-6 md:px-margin-desktop mb-24 md:mb-0">
       
       {/* Section Header */}
       <motion.div 

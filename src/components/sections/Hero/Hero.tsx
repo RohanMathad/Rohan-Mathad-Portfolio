@@ -41,26 +41,28 @@ export const Hero: React.FC = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 1.8 }}
-        className="font-display-xl text-[40px] md:text-display-xl max-w-4xl leading-tight mb-2 z-10 text-white drop-shadow-md"
+        className="font-display-xl text-[40px] md:text-display-xl w-full md:max-w-4xl leading-tight mb-2 z-10 text-white drop-shadow-md"
       >
-        Hi! I'm <span className="italic text-primary-fixed-dim">Rohan</span>,
+        I'm <span className="italic text-primary-fixed-dim">Rohan</span>,
       </motion.h1>
 
-      {/* Secondary H2 - Smaller Headline Size */}
+      {/* Secondary H2 - Fixed Line Break */}
       <motion.h2
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 2 }}
-        className="font-headline-lg text-headline-lg-mobile md:text-headline-lg max-w-4xl leading-tight mb-6 z-10 text-white/90 drop-shadow-md"
+        className="font-headline-lg text-headline-lg-mobile md:text-headline-lg w-full md:max-w-4xl leading-tight mb-6 z-10 text-white/90 drop-shadow-md"
       >
-        I build scalable,<br></br> impactful web experiences.
+        {/* Only break the line on desktop, let it flow naturally on mobile */}
+        I build scalable,<br className="hidden md:block" /> impactful web experiences.
       </motion.h2>
 
+      {/* Paragraph - Removed max-w-[280px] causing the squish */}
       <motion.p 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 2 }}
-        className="font-body-lg text-body-md md:text-body-lg text-gray-300 max-w-[280px] md:max-w-2xl mb-10 z-10 drop-shadow-sm"
+        className="font-body-lg text-body-md md:text-body-lg text-gray-300 w-full md:max-w-2xl mb-10 z-10 drop-shadow-sm pr-4 md:pr-0"
       >
         <span className="md:hidden">Engineering precision meets editorial sophistication.</span>
         <span className="hidden md:inline">I engineer high-performance digital products blending deep technical expertise with a refined eye for design. Based in technical luxury.</span>
@@ -74,7 +76,6 @@ export const Hero: React.FC = () => {
         onClick={scrollToProjects}
         style={{ cursor: 'pointer' }}
       >
-        {/* We removed the inline onClick on the span and let the parent wrapper handle the logic */}
         <Button className={styles.btnPointer} variant="primary">
           <span className="hidden md:inline">View Work</span>
           <span className="md:hidden">Let's Chat!</span>

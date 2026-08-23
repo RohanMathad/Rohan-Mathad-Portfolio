@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ProjectItem } from './Projects.types';
-import './Projects.module.scss';
+// import styles from './Projects.module.scss';
 
 // ==========================================
 // 🚀 HOW TO ADD A NEW PROJECT IN THE FUTURE:
