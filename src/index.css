@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+html {
+  scroll-behavior: auto !important;
+  overscroll-behavior: none;
+}
+
 @theme {
   --color-surface-container-lowest: #0e0e0e;
   --color-on-secondary-fixed-variant: #464747;

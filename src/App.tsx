@@ -11,7 +11,7 @@ import { Footer } from './components/sections/Footer/Footer';
 export default function App() {
   return (
     <GlobalProvider>
-      <ReactLenis root options={{ lerp: 0.05, duration: 1.5, smoothWheel: true }}>
+      <ReactLenis root options={{ lerp: 0.08, wheelMultiplier: 1, smoothWheel: true }}>
         
         {/* 
           THE GLOBAL OVERFLOW FIX:
