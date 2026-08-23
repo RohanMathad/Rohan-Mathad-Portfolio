@@ -14,7 +14,7 @@ const projectsData: ProjectItem[] = [
     category: 'Project Management',
     title: 'Orbit Workspace',
     description: 'An enterprise project tracking software featuring a real-time Kanban board, strict RBAC, & team chat, built with React, TypeScript, and Firebase.',
-    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuApIqW--jmoKkANTdIDO0YA7TN2-wNdpCPYfgnETANrqigf-csQe6yL_ZI5xF6zpStt4Sc8hzi9mD_92a-vVlXSD7yDEDstehp9sAcXm2PaA4GnLDI1HIhK8t3CYsdM3Zr4yphybUXurNtzbn8g8RgA5RwE4yA32nNOpZuE_Gt5gr1qEUUksqfUdjvFdzST51-Tusm5zhDRnw7vrv4gbqHcjzLfmuyaqj1ZnYnHoIMOkFutrTAw5YxH',
+    imageUrl: "../../../../assets/images/2026-08-23 16_22_16-Greenshot.png",
     link: 'https://enterprise-project-management-syste.vercel.app/login'
   },
   {
@@ -29,9 +29,9 @@ const projectsData: ProjectItem[] = [
     id: 'p3',
     category: 'SaaS',
     title: 'Agile Flow Tool',
-    description: 'A real-time collaborative project management tool utilizing WebSockets and optimistic UI updates.',
-    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCqy6_KO4Mm3uDR1mSJr97wEQsIrS6LgaeItkax0jfvbEqJ3K5cAP1vzz8U2YhJKHPQZRnx_WtKdehQ2T6nvQRiujcm9O6cigUjq8RmFy-50XcacLrnwftfVeMAS9fJ2GGt-XrsOo4oin18uM8Rp5bbNfvWu9Y79HY8bFx8U4cgXKu7OZdEXo2crSVknwa20rQezzjaEB3hjrTZptTrmLO5iZLd_Xrk_auTBPqZ0ZGo7DLO8jlPSA3s',
-    link: 'https://google.com'
+    description: 'Full-stack AI SaaS app with React frontend, Clerk authentication, subscription management, and AI tools for blogs, images, and resumes.',
+    imageUrl: "../../../../assets/images/2026-08-23 16_18_23-Greenshot.png",
+    link: 'https://aisaas-app-three.vercel.app/'
   }
 ];
 

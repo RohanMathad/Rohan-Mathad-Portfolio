@@ -24,9 +24,8 @@ export const Footer: React.FC = () => {
         </div>
         <div className="flex gap-8 mb-16">
           <a href="https://www.linkedin.com/in/rohan-mathad-77aa48266/" className="font-label-sm text-label-sm text-on-surface-variant hover:text-white transition-opacity duration-300">LinkedIn</a>
-          <a href="#" className="font-label-sm text-label-sm text-on-surface-variant hover:text-white transition-opacity duration-300">GitHub</a>
-          <a href="#" className="font-label-sm text-label-sm text-on-surface-variant hover:text-white transition-opacity duration-300">Twitter</a>
-          <a href="#" className="font-label-sm text-label-sm text-on-surface-variant hover:text-white transition-opacity duration-300">Email</a>
+          <a href="https://github.com/RohanMathad" className="font-label-sm text-label-sm text-on-surface-variant hover:text-white transition-opacity duration-300">GitHub</a>
+          <a href="#" className="font-label-sm text-label-sm text-on-surface-variant hover:text-white transition-opacity duration-300">Resume</a>
         </div>
         <div className="w-full flex flex-col items-center">
           <p className="font-label-sm text-label-sm text-on-surface-variant mb-8">© 2026 Rohan. All Rights Reserved</p>
@@ -43,7 +42,7 @@ export const Footer: React.FC = () => {
         className="flex flex-col items-center text-center gap-8 w-full px-6 md:hidden relative z-20"
       >
         <ul className="flex flex-col gap-6 items-center">
-          <li><a href="#" className="font-body-md text-body-md text-outline hover:text-primary transition-opacity tracking-widest">GITHUB</a></li>
+          <li><a href="https://github.com/RohanMathad" className="font-body-md text-body-md text-outline hover:text-primary transition-opacity tracking-widest">GITHUB</a></li>
           <li><a href="https://www.linkedin.com/in/rohan-mathad-77aa48266/" className="font-body-md text-body-md text-outline hover:text-primary transition-opacity tracking-widest">LINKEDIN</a></li>
           <li><a href="#" className="font-body-md text-body-md text-outline hover:text-primary transition-opacity tracking-widest">RESUME</a></li>
         </ul>
