@@ -21,7 +21,7 @@ export const Footer: React.FC = () => {
       >
         <div className="text-center mb-12">
           <h2 className="font-display-xl text-headline-lg-mobile md:text-headline-lg mb-6">Ready to build something <span className="italic text-primary-fixed-dim">extraordinary?</span></h2>
-          <a href="mailto:rohan.demo@example.com" className="font-body-lg text-body-lg text-primary hover:text-white underline underline-offset-8 transition-colors">mathadrohan72@gmail.com</a>
+          <a href="mailto:rohan.demo@example.com" className="font-body-lg text-body-lg text-primary hover:text-white underline underline-offset-8 transition-colors">Email</a>
         </div>
         <div className="flex gap-8 mb-16">
           <a href="https://www.linkedin.com/in/rohan-mathad-77aa48266/" className="font-label-sm text-label-sm text-on-surface-variant hover:text-white transition-opacity duration-300">LinkedIn</a>
