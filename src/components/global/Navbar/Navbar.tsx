@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import { useGlobalContext } from '@/src/context/GlobalContext';
 import { Button } from '../Button/Button';
-import './Navbar.module.scss';
+// import styles form './Navbar.module.scss';
 
 export const Navbar: React.FC = () => {
   const { isMobileMenuOpen, setIsMobileMenuOpen } = useGlobalContext();
@@ -13,7 +13,7 @@ export const Navbar: React.FC = () => {
       <nav className="fixed top-0 left-0 right-0 z-50 hidden md:flex justify-center items-center w-full px-4 mt-6">
         <div className="glass-panel flex items-center gap-8 px-6 py-3 rounded-full shadow-2xl">
           <a href="#" className="font-display-xl text-headline-md italic text-primary tracking-tighter">
-            agenciy
+            Frontend Dev
           </a>
           <div className="flex items-center gap-6">
             <a href="#skills" className="font-label-sm text-label-sm text-on-surface-variant hover:text-primary transition-colors duration-300">
@@ -26,7 +26,7 @@ export const Navbar: React.FC = () => {
               Projects
             </a>
           </div>
-          <Button variant="primary" className="!py-2.5">Let's Chat</Button>
+          <Button variant="primary" className="!py-2.5"> <a href="#contact">Let's Chat</a> </Button>
         </div>
       </nav>
 
@@ -38,7 +38,7 @@ export const Navbar: React.FC = () => {
         >
           <span className="material-symbols-outlined">{isMobileMenuOpen ? 'close' : 'menu'}</span>
         </button>
-        <span className="font-display-xl text-[32px] tracking-tighter text-primary leading-none">RAHUL</span>
+        <span className="font-display-xl text-[32px] tracking-tighter text-primary leading-none">Rohan</span>
         <button className="text-primary hover:text-primary/80 transition-colors">
           <span className="material-symbols-outlined">terminal</span>
         </button>

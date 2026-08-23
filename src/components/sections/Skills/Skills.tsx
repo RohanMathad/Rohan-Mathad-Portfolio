@@ -41,26 +41,36 @@ const skillsData: SkillItem[] = [
 export const Skills: React.FC = () => {
   return (
     <section id="skills" className="scroll-mt-32 w-full max-w-container-max mx-auto md:px-margin-desktop mb-24 md:mb-0">
-      <div className="flex flex-col items-center mb-8 md:mb-16 text-center md:text-left">
+      
+      {/* Section Header */}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.5 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="flex flex-col items-center mb-8 md:mb-16 text-center md:text-left"
+      >
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full md:rounded border border-outline-variant bg-surface-container md:mb-4 glass-card md:glass-none self-start md:self-center mb-6">
           <span className="material-symbols-outlined text-[14px] md:text-[14px] text-primary">terminal</span>
           <span className="font-label-sm text-label-sm text-primary md:text-secondary uppercase tracking-widest hidden md:inline">✦ Technical Arsenal</span>
           <span className="font-label-sm text-label-sm text-primary uppercase inline md:hidden">Technical Arsenal</span>
         </div>
         <h2 className="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg hidden md:block">Core Competencies</h2>
-      </div>
+      </motion.div>
 
+      {/* Skills Grid with Staggered Animations */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-gutter">
         {skillsData.map((skill, index) => (
           <motion.div 
             key={skill.id}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
+            // once: true ensures it only animates the first time you see it
+            viewport={{ once: false, amount: 0.2 }}
+            // The magic is here: 0.2s base delay + (index * 0.15s) stagger
+            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 + (index * 0.15) }}
             className="glass-card md:glass-panel p-6 md:p-8 rounded-[24px] flex flex-col h-full group hover:bg-white/[0.05] transition-colors duration-500"
           >
-            <span className="font-label-sm text-label-sm text-on-surface-variant mb-6 hidden md:block">/{skill.number}</span>
             <div className="flex gap-4 md:block">
               <div className="w-12 h-12 rounded-xl bg-white/5 md:bg-surface-container-high border border-white/10 md:border-outline-variant flex items-center justify-center mb-0 md:mb-6 shrink-0">
                 <span className="material-symbols-outlined text-primary">{skill.icon}</span>
