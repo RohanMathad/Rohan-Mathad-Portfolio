@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ProjectItem } from './Projects.types';
+import proj1Img from "../../../../assets/images/2026-08-23 16_22_16-Greenshot.png"
+import proj3Img from "../../../../assets/images/2026-08-23 16_18_23-Greenshot.png"
 // import styles from './Projects.module.scss';
 
 // ==========================================
@@ -14,7 +16,7 @@ const projectsData: ProjectItem[] = [
     category: 'Project Management',
     title: 'Orbit Workspace',
     description: 'An enterprise project tracking software featuring a real-time Kanban board, strict RBAC, & team chat, built with React, TypeScript, and Firebase.',
-    imageUrl: "../../../../assets/images/2026-08-23 16_22_16-Greenshot.png",
+    imageUrl: proj1Img,
     link: 'https://enterprise-project-management-syste.vercel.app/login'
   },
   {
@@ -30,7 +32,7 @@ const projectsData: ProjectItem[] = [
     category: 'SaaS',
     title: 'Agile Flow Tool',
     description: 'Full-stack AI SaaS app with React frontend, Clerk authentication, subscription management, and AI tools for blogs, images, and resumes.',
-    imageUrl: "../../../../assets/images/2026-08-23 16_18_23-Greenshot.png",
+    imageUrl: proj3Img,
     link: 'https://aisaas-app-three.vercel.app/'
   }
 ];

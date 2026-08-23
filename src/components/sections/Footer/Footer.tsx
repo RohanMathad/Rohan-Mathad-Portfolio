@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import './Footer.module.scss';
 
+
 export const Footer: React.FC = () => {
   return (
     <footer 
