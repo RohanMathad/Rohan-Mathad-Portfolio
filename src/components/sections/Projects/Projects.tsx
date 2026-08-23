@@ -82,10 +82,7 @@ export const Projects: React.FC = () => {
         </div>
       </motion.div>
 
-      {/* 
-        Interactive Slider Container 
-        Fades in smoothly shortly after the header
-      */}
+      {/* Interactive Slider Container */}
       <motion.div 
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -125,15 +122,13 @@ export const Projects: React.FC = () => {
               initial="hidden"
               animate={position}
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              // Allow clicking side cards to bring them to the center
-              onClick={() => {
-                if (position === 'left') handlePrev();
-                if (position === 'right') handleNext();
-              }}
-              className={`absolute w-[85%] md:w-[50%] lg:w-[45%] h-full max-h-[450px] md:max-h-[600px] group rounded-[24px] overflow-hidden glass-card md:glass-panel flex flex-col justify-end p-6 md:p-10 shadow-2xl ${position !== 'center' ? 'cursor-pointer' : ''}`}
+              // Removed onClick handler to disable clicking side cards
+              // Removed 'group' and 'cursor-pointer' from className
+              className={`absolute w-[85%] md:w-[50%] lg:w-[45%] h-full max-h-[450px] md:max-h-[600px] rounded-[24px] overflow-hidden glass-card md:glass-panel flex flex-col justify-end p-6 md:p-10 shadow-2xl`}
             >
+              {/* Removed group-hover:scale-105 and transition durations to kill the zoom effect */}
               <div 
-                className="absolute inset-0 z-0 transition-transform duration-700 group-hover:scale-105 bg-cover bg-center"
+                className="absolute inset-0 z-0 bg-cover bg-center"
                 style={{ backgroundImage: `url('${project.imageUrl}')` }}
               ></div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent z-10"></div>
