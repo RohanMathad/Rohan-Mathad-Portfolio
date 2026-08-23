@@ -27,7 +27,7 @@ export const Experience: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, margin: "-50px", amount: 0.3 }}
+            viewport={{ once: true, margin: "-50px", amount: 0.3 }}
             transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
             className="flex flex-col md:flex-row justify-between items-center w-full relative"
           >
