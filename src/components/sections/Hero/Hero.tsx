@@ -26,14 +26,14 @@ export const Hero: React.FC = () => {
         <HeroCanvas />
       </div>
 
-      <motion.div 
+     <motion.div 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 1.5 }}
-        className="inline-flex items-center gap-2 glass-panel px-4 py-1.5 rounded-full mb-8 z-10 hidden md:inline-flex mt-[10vh]"
+        className="inline-flex items-center gap-2 backdrop-blur-md bg-white/10 border border-white/20 shadow-lg px-4 py-1.5 rounded-full mb-8 z-10 hidden md:inline-flex mt-[10vh]"
       >
-        <span className="material-symbols-outlined text-[14px]">code</span>
-        <span className="font-label-sm text-label-sm text-on-surface-variant uppercase text-white">Frontend & Full-Stack Developer</span>
+        <span className="material-symbols-outlined text-[14px] text-white">code</span>
+        <span className="font-label-sm text-label-sm uppercase text-white tracking-widest">Frontend & Full-Stack Developer</span>
       </motion.div>
 
       {/* Main H1 - Huge Display Size */}

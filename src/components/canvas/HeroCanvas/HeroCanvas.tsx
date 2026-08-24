@@ -44,7 +44,7 @@ const Blob = () => {
   });
 
   return (
-    <Sphere ref={meshRef} args={[25, 128, 128]} position={[2, -0.5, 0]}>
+    <Sphere ref={meshRef} args={[5, 128, 128]} position={[2, -0.5, 0]}>
       <meshPhysicalMaterial
         color="#5b5b5b"
         metalness={0.4}
