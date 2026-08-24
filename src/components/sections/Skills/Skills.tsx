@@ -47,7 +47,7 @@ export const Skills: React.FC = () => {
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.5 }}
+        viewport={{ once: true, amount: 0, margin: "0px 0px 200px 0px" }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="flex flex-col items-center mb-8 md:mb-16 text-center md:text-left"
       >
@@ -67,7 +67,7 @@ export const Skills: React.FC = () => {
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             // once: true ensures it only animates the first time you see it
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0, margin: "0px 0px 200px 0px" }}
             // The magic is here: 0.2s base delay + (index * 0.15s) stagger
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 + (index * 0.15) }}
             className="glass-card md:glass-panel p-6 md:p-8 rounded-[24px] flex flex-col h-full group hover:bg-white/[0.05] transition-colors duration-500"

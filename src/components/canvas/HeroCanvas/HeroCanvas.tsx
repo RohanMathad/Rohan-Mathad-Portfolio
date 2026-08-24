@@ -19,6 +19,8 @@ const Blob = () => {
 
   useFrame((state) => {
     if (!meshRef.current) return;
+    if (window.scrollY > window.innerHeight + 100) return;
+    
     const time = state.clock.getElapsedTime();
     const geometry = meshRef.current.geometry;
 

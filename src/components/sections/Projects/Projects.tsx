@@ -65,7 +65,7 @@ export const Projects: React.FC = () => {
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.5 }}
+        viewport={{ once: true, amount: 0, margin: "0px 0px 200px 0px" }}
         transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
         className="flex flex-col items-center mb-8 md:mb-16 text-center md:text-left md:px-margin-desktop px-6 max-w-container-max mx-auto"
       >
@@ -86,7 +86,7 @@ export const Projects: React.FC = () => {
       <motion.div 
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.2 }}
+        viewport={{ once: true, amount: 0, margin: "0px 0px 200px 0px" }}
         transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
         className="relative w-full h-[500px] md:h-[650px] flex items-center justify-center max-w-[1600px] mx-auto px-4"
       >
