@@ -2,7 +2,6 @@ import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Environment, Sphere } from '@react-three/drei';
 import * as THREE from 'three';
-import clsx from 'clsx';
 import { HeroCanvasProps } from './HeroCanvas.types';
 import { createNoise3D } from 'simplex-noise';
 
@@ -11,6 +10,13 @@ const Blob = () => {
   const noise3D = useMemo(() => createNoise3D(), []);
   const originalPositions = useRef<Float32Array | null>(null);
 
+  // 1. Swirling colors
+  const colorA = useMemo(() => new THREE.Color("#010101"), []); 
+  const colorB = useMemo(() => new THREE.Color("#2a2a2a"), []); 
+  const colorC = useMemo(() => new THREE.Color("#606060"), []); 
+  
+  const tempColor = useMemo(() => new THREE.Color(), []);
+
   useFrame((state) => {
     if (!meshRef.current) return;
     const time = state.clock.getElapsedTime();
@@ -18,43 +24,68 @@ const Blob = () => {
     
     if (!originalPositions.current) {
       originalPositions.current = new Float32Array(geometry.attributes.position.array);
+      const colorArray = new Float32Array(geometry.attributes.position.count * 3);
+      geometry.setAttribute('color', new THREE.BufferAttribute(colorArray, 3));
     }
 
     const positions = geometry.attributes.position;
+    const colors = geometry.attributes.color;
     const vertex = new THREE.Vector3();
 
     for (let i = 0; i < positions.count; i++) {
       vertex.fromArray(originalPositions.current, i * 3);
       
-      const noise = noise3D(
-        vertex.x * 0.4 + time * 0.15, 
-        vertex.y * 0.4 + time * 0.2, 
-        vertex.z * 0.4 + time * 0.15
+      // SMOOTHER NOISE: Reduced frequency multipliers for a calmer surface
+      const shapeNoise = noise3D(
+        vertex.x * 0.3 + time * 0.1, 
+        vertex.y * 0.3 + time * 0.1, 
+        vertex.z * 0.3 + time * 0.1
       );
       
-      vertex.normalize().multiplyScalar(2 + noise * 0.3);
+      const colorNoise = noise3D(
+        vertex.x * 0.8 - time * 0.1, 
+        vertex.y * 0.8 + time * 0.1, 
+        vertex.z * 0.8 - time * 0.1
+      );
+
+      // PROPER SCALING & SUBTLE BOUNCE: Base size is now 1.5, stretch is only 0.1
+      vertex.normalize().multiplyScalar(1.5 + shapeNoise * 0.1);
       positions.setXYZ(i, vertex.x, vertex.y, vertex.z);
+
+      const mixValue = (colorNoise + 1) / 2;
+      
+      if (mixValue < 0.5) {
+        tempColor.lerpColors(colorA, colorB, mixValue * 2);
+      } else {
+        tempColor.lerpColors(colorB, colorC, (mixValue - 0.5) * 2);
+      }
+
+      colors.setXYZ(i, tempColor.r, tempColor.g, tempColor.b);
     }
     
     positions.needsUpdate = true;
+    colors.needsUpdate = true;
     geometry.computeVertexNormals();
     
-    meshRef.current.rotation.y = time * 0.05;
-    meshRef.current.rotation.z = time * 0.02;
+    // X-AXIS ROTATION: Primary rotation on X, very subtle wobble on Y
+    meshRef.current.rotation.x = time * 0.08;
+    meshRef.current.rotation.y = time * 0.02;
+    meshRef.current.rotation.z = 0;
   });
 
   return (
-    <Sphere ref={meshRef} args={[5, 128, 128]} position={[2, -0.5, 0]}>
+    // CENTERED POSITION: Moved from [1, -0.05, 0] to [0, 0, 0]
+    <Sphere ref={meshRef} args={[1.5, 64, 64]} position={[1.25, -0.05, 1]}>
       <meshPhysicalMaterial
-        color="#5b5b5b"
-        metalness={0.4}
-        roughness={0.15}
-        transmission={0.9}
+        vertexColors={true} 
+        metalness={0.2}
+        roughness={0.1}
+        transmission={0.9} 
         ior={1.5}
         thickness={2}
-        attenuationColor="#242424"
-        attenuationDistance={5}
-        envMapIntensity={1.2}
+        envMapIntensity={1.5}
+        clearcoat={1} 
+        clearcoatRoughness={0.1}
       />
     </Sphere>
   );
@@ -62,12 +93,12 @@ const Blob = () => {
 
 export const HeroCanvas: React.FC<HeroCanvasProps> = () => {
   return (
-    <div className="w-full h-full">
-      {/* gl={{ alpha: true }} ensures the canvas background is totally transparent */}
-      <Canvas camera={{ position: [0, 0, 3], fov: 45 }} gl={{ alpha: true }}> 
-        <ambientLight intensity={0.1} />
-        <directionalLight position={[5, 5, 2]} intensity={1.5} color="#0055ff" />
-        <directionalLight position={[-5, -5, -2]} intensity={1} color="#3300ff" />
+    <div className="w-full h-full absolute inset-0 z-[-1] pointer-events-none">
+      {/* CAMERA BACKED UP: Moved Z from 2 to 4 so the larger sphere fits in the frame */}
+      <Canvas camera={{ position: [0, 0, 4], fov: 45 }} gl={{ alpha: true }}> 
+        <ambientLight intensity={0.5} />
+        <directionalLight position={[5, 5, 2]} intensity={2} color="#ffffff" />
+        <directionalLight position={[-5, -5, -2]} intensity={1} color="#ffffff" />
         <Blob />
         <Environment preset="studio" />
       </Canvas>
