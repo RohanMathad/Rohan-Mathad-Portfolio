@@ -15,7 +15,7 @@ export const Footer: React.FC = () => {
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="hidden md:flex flex-col items-center w-full relative z-10"
       >
@@ -37,7 +37,7 @@ export const Footer: React.FC = () => {
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         // Centered items so it looks clean above the watermark on mobile
         className="flex flex-col items-center text-center gap-8 w-full px-6 md:hidden relative z-20"
@@ -58,8 +58,8 @@ export const Footer: React.FC = () => {
       <motion.div 
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.1 }}
-        transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+        viewport={{ once: true, amount: 0 }}
+        transition={{ duration: 4, ease: [0.16, 1, 0.3, 1], delay: 0.9 }}
         className="font-display-xl w-full text-center text-[31vw] md:text-[28vw] tracking-tighter select-none leading-none absolute bottom-16 md:bottom-2 left-1/2 transform -translate-x-1/2 bg-gradient-to-b from-white/30 to-transparent bg-clip-text text-transparent pointer-events-none z-0"
       >
         ROHAN
