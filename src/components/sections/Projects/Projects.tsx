@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ProjectItem } from './Projects.types';
 import proj1Img from "../../../../assets/images/2026-08-23 16_22_16-Greenshot.png"
-import proj3Img from "../../../../assets/images/2026-08-23 16_18_23-Greenshot.png"
+import proj2Img from "../../../../assets/images/2026-08-23 16_18_23-Greenshot.png"
+import proj3Img from "../../../../assets/images/2026-09-02 11_54_51-Greenshot.png"
+
 // import styles from './Projects.module.scss';
 
 // ==========================================
@@ -21,20 +23,21 @@ const projectsData: ProjectItem[] = [
   },
   {
     id: 'p2',
-    category: 'AI / ML',
-    title: 'Nexus AI Platform',
-    description: 'Frontend architecture for a machine learning model training and deployment interface.',
-    imageUrl: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBsZGGCTqytjoksorSjo2bFyo8Iyn_88BqZaajXVmdZ25EpwXybRS8MuJ1AqS8le_PJdzyCJQVrVC_xds_51QjC3r2m8NJBTqAf0epVCzbkK5-HJ30St3i35Bn_EQ8h0gRwxLJP8W94_e-3sHOMO9Shzt5EqvUYziicwZQEeveqo_xbNvjY635Cto1j-I_dkxNcbZfOjCZ5zs910kD5msm65aHJbZyipJIVfFMTgfKCp7butaRBrDwE',
-    link: '#'
-  },
-  {
-    id: 'p3',
     category: 'SaaS',
     title: 'Agile Flow Tool',
     description: 'Full-stack AI SaaS app with React frontend, Clerk authentication, subscription management, and AI tools for blogs, images, and resumes.',
-    imageUrl: proj3Img,
+    imageUrl: proj2Img,
     link: 'https://aisaas-app-three.vercel.app/'
+  },
+  {
+    id: 'p3',
+    category: 'Frontend / UI',
+    title: 'Accredian Enterprise Portal',
+    description: 'A high-performance enterprise portal engineered with Next.js, React, and Redux, featuring modular UI architecture, seamless navigation, and fully responsive design.',
+    imageUrl: proj3Img,
+    link: 'https://accredian-enterprise-clone-ruddy-six.vercel.app/'
   }
+
 ];
 
 export const Projects: React.FC = () => {
@@ -60,9 +63,9 @@ export const Projects: React.FC = () => {
 
   return (
     <section id="projects" className="scroll-mt-32 w-full max-w-[100vw] mx-auto mb-24 md:mb-0 overflow-hidden">
-      
+
       {/* Section Header with smooth fade-in */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0, margin: "0px 0px 200px 0px" }}
@@ -83,25 +86,25 @@ export const Projects: React.FC = () => {
       </motion.div>
 
       {/* Interactive Slider Container */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0, margin: "0px 0px 200px 0px" }}
         transition={{ duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.4 }}
         className="relative w-full h-[500px] md:h-[650px] flex items-center justify-center max-w-[1600px] mx-auto px-4"
       >
-        
+
         {/* Left Navigation Arrow */}
-        <button 
-          onClick={handlePrev} 
+        <button
+          onClick={handlePrev}
           className="absolute left-2 md:left-8 z-30 w-12 h-12 rounded-full glass-card border border-white/20 flex items-center justify-center text-white hover:bg-white/10 transition-colors backdrop-blur-md"
         >
           <span className="material-symbols-outlined">chevron_left</span>
         </button>
 
         {/* Right Navigation Arrow */}
-        <button 
-          onClick={handleNext} 
+        <button
+          onClick={handleNext}
           className="absolute right-2 md:right-8 z-30 w-12 h-12 rounded-full glass-card border border-white/20 flex items-center justify-center text-white hover:bg-white/10 transition-colors backdrop-blur-md"
         >
           <span className="material-symbols-outlined">chevron_right</span>
@@ -116,7 +119,7 @@ export const Projects: React.FC = () => {
           else if (index === (currentIndex + 1) % projectsData.length) position = 'right';
 
           return (
-            <motion.div 
+            <motion.div
               key={project.id}
               variants={cardVariants}
               initial="hidden"
@@ -127,7 +130,7 @@ export const Projects: React.FC = () => {
               className={`absolute w-[85%] md:w-[50%] lg:w-[45%] h-full max-h-[450px] md:max-h-[600px] rounded-[24px] overflow-hidden glass-card md:glass-panel flex flex-col justify-end p-6 md:p-10 shadow-2xl`}
             >
               {/* Removed group-hover:scale-105 and transition durations to kill the zoom effect */}
-              <div 
+              <div
                 className="absolute inset-0 z-0 bg-cover bg-center"
                 style={{ backgroundImage: `url('${project.imageUrl}')` }}
               ></div>
@@ -144,10 +147,12 @@ export const Projects: React.FC = () => {
                   <p className="font-body-md text-sm md:text-body-md text-gray-300 mb-4 md:mb-8 line-clamp-2">
                     {project.description}
                   </p>
-                  
+
                   {/* Only allow the "View Case Study" link to be clickable if the card is centered */}
-                  <a 
-                    href={position === 'center' ? project.link : '#'} 
+                  <a
+                    href={position === 'center' ? project.link : '#'}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 font-label-sm text-label-sm text-primary hover:text-white transition-colors pointer-events-auto"
                     onClick={(e) => {
                       if (position !== 'center') e.preventDefault();
