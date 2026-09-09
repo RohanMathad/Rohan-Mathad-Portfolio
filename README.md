@@ -4,7 +4,7 @@ A high-performance, WebGL-integrated personal portfolio engineered for flawless 
 
 ## 🚀 Live Demo
 
-[Insert Your Vercel/Live Link Here]
+https://rohan-mathad-portfolio.vercel.app/
 
 ## ✨ Key Features & Engineering Highlights
 
@@ -68,7 +68,3 @@ CSS blurs (`backdrop-filter`) and complex layout animations are strictly hardwar
 *Frontend & Full-Stack Developer* | *B.E. Computer Engineering*
 
 Passionate about scalable web architecture, high-performance computing, and bridging the gap between deep technical implementation and refined UI/UX design.
-
----
-
-How does this structure look to you? I can easily add a "Contact" or "License" section if you want to include your LinkedIn or open-source it.
