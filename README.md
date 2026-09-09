@@ -28,8 +28,8 @@ Follow these steps to run the project locally.
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/RohanMathad/Rohan-Mathad-Portfolio.git
+cd Rohan-Mathad-Portfolio
 
 ```
 
