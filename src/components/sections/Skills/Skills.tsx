@@ -48,7 +48,7 @@ export const Skills: React.FC = () => {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0, margin: "0px 0px 200px 0px" }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 1.4, ease: "easeOut" }}
         className="flex flex-col items-center mb-8 md:mb-16 text-center md:text-left"
       >
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full md:rounded border border-outline-variant bg-surface-container md:mb-4 glass-card md:glass-none self-start md:self-center mb-6">
@@ -69,7 +69,7 @@ export const Skills: React.FC = () => {
             // once: true ensures it only animates the first time you see it
             viewport={{ once: true, amount: 0, margin: "0px 0px 200px 0px" }}
             // The magic is here: 0.2s base delay + (index * 0.15s) stagger
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1], delay: 0.2 + (index * 0.15) }}
+            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.9 + (index * 0.15) }}
             className="glass-card md:glass-panel p-6 md:p-8 rounded-[24px] flex flex-col h-full group hover:bg-white/[0.05] transition-colors duration-500"
           >
             <div className="flex gap-4 md:block">
